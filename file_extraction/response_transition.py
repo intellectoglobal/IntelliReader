@@ -1,6 +1,7 @@
 from textractor import Textractor
 from textractor.data.constants import TextractFeatures
 
+
 class TextractAnalyzer:
     """
     A class to handle interactions with AWS Textract.
@@ -28,6 +29,22 @@ class TextractAnalyzer:
             save_image=True
         )
         return response.response
+
+    def get_layout_figures_geometry(self, response: dict) -> list:
+        """
+        Extracts and returns the geometry data for "LAYOUT_FIGURE" elements.
+
+        Args:
+            response (dict): The response from Textract.
+
+        Returns:
+            list: A list of geometry data for "LAYOUT_FIGURE" elements.
+        """
+        layout_figures = []
+        for block in response['Blocks']:
+            if block['BlockType'] == 'LAYOUT_FIGURE':
+                layout_figures.append(block['Geometry']['BoundingBox'])
+        return layout_figures
 
 
 class LayoutFigureIdentifier:
