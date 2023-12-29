@@ -91,4 +91,20 @@ class FontSizeEstimator:
         bbox_height_points = bbox_height_inches * 72
         estimated_padding_points = 2
         estimated_font_size = bbox_height_points - estimated_padding_points
-        return int(estimated_font_size)
+
+        fractional_part = estimated_font_size % 1
+        truncated_font_size = int(estimated_font_size)
+
+        if truncated_font_size % 2 == 1:
+            adjusted_font_size = truncated_font_size - 1 + fractional_part
+            estimated_font_size = adjusted_font_size
+
+        estimated_font_size = int(round(estimated_font_size))
+
+        if estimated_font_size % 2 == 1:
+            estimated_font_size -= 1
+
+        if estimated_font_size < 8:
+            return 8
+        else:
+            return estimated_font_size

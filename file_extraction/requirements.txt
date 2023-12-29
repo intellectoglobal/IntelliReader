@@ -1,4 +1,4 @@
-PyMuPDF==1.18.19
-textractor==1.0.0
-pdf2docx==0.5.8
-boto3==1.24.1
+PyMuPDF
+textractor
+pdf2docx
+boto3
