@@ -35,24 +35,24 @@ class CustomAccountManager(BaseUserManager):
 
 class IR_M_USERS(AbstractBaseUser, PermissionsMixin):
 
-    groups = models.ManyToManyField(
-        Group,
-        verbose_name=_('groups'),
-        blank=True,
-        help_text=_(
-            'The groups this user belongs to. A user will get all permissions '
-            'granted to each of their groups.'
-        ),
-        related_name='ir_m_users_groups'  # Add a related_name to avoid clashes
-    )
+    # groups = models.ManyToManyField(
+    #     Group,
+    #     verbose_name=_('groups'),
+    #     blank=True,
+    #     help_text=_(
+    #         'The groups this user belongs to. A user will get all permissions '
+    #         'granted to each of their groups.'
+    #     ),
+    #     related_name='ir_m_users_groups'  # Add a related_name to avoid clashes
+    # )
 
-    user_permissions = models.ManyToManyField(
-        Permission,
-        verbose_name=_('user permissions'),
-        blank=True,
-        help_text=_('Specific permissions for this user.'),
-        related_name='ir_m_users_user_permissions'  # Add a related_name to avoid clashes
-    )
+    # user_permissions = models.ManyToManyField(
+    #     Permission,
+    #     verbose_name=_('user permissions'),
+    #     blank=True,
+    #     help_text=_('Specific permissions for this user.'),
+    #     related_name='ir_m_users_user_permissions'  # Add a related_name to avoid clashes
+    # )
 
     user_ID = models.AutoField(primary_key=True)
     user_name = models.CharField(max_length=255)
