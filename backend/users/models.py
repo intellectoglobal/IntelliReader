@@ -33,7 +33,7 @@ class CustomAccountManager(BaseUserManager):
         return user
 
 
-class IR_M_USERS(AbstractBaseUser, PermissionsMixin):
+class IR_M_USERS(AbstractBaseUser):
 
     # groups = models.ManyToManyField(
     #     Group,
@@ -59,8 +59,8 @@ class IR_M_USERS(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(_('email address'), unique=True)
     password_hash = models.CharField(max_length=255)
     ip_address = models.GenericIPAddressField(null=True, blank=True)
-    created_at = models.DateTimeField(auto_now_add=True)
-    role = models.CharField(max_length=255)
+    created_at = models.DateTimeField(auto_now_add=True, blank=True)
+    role = models.CharField(max_length=255, blank = True)
     location = models.CharField(max_length=255, null=True, blank=True)
     country = models.CharField(max_length=255, null=True, blank=True)
     phone_number = models.CharField(max_length=20, null=True, blank=True)

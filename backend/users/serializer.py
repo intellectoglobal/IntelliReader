@@ -13,7 +13,7 @@ class CustomUserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = IR_M_USERS
-        fields = ('__all__', 'confirm_password')
+        fields = ('email','user_name','password','confirm_password')
         # extra_kwargs = {'password': {'write_only': True}}
 
     def create(self, validated_data):
