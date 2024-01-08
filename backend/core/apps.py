@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class PdfreaderConfig(AppConfig):
+class CommonAppConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'pdf_reader_app'
+    name = 'core'

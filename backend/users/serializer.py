@@ -1,6 +1,5 @@
 from rest_framework import serializers
-from users.models import IR_M_USERS
-
+from users.models import NewUsers
 
 class CustomUserSerializer(serializers.ModelSerializer):
     """
@@ -12,7 +11,7 @@ class CustomUserSerializer(serializers.ModelSerializer):
     confirm_password = serializers.CharField(write_only=True)
 
     class Meta:
-        model = IR_M_USERS
+        model = NewUsers
         fields = ('email','user_name','password','confirm_password')
         # extra_kwargs = {'password': {'write_only': True}}
 
@@ -27,3 +26,4 @@ class CustomUserSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError("password doesn't match")
         instance.save()
         return instance
+

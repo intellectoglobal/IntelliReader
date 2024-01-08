@@ -37,11 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'pdf_reader_app',
-    'pdf_utilits_app',
-    'image_to_doc_app',
+    'pdf_reader',
+    'pdf_utilits',
+    'image_to_doc',
     'users',
-    'rest_framework'
+    'rest_framework',
+    'core'
 ]
 
 MIDDLEWARE = [
