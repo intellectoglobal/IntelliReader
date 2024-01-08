@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'image_to_doc',
     'users',
     'rest_framework',
-    'corsheaders',
+    # 'corsheaders',
         # OAuth
     'oauth2_provider',
     'social_django',
