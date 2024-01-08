@@ -1,0 +1,6 @@
+# Django commands :
+py manage.py runserver
+py manage.py createsuperuser
+
+# To get the access and refrsh token:
+curl -X POST -d "client_id=P2484k64E7v6wZ82An9SBHqPBLLoktfOklNdcenh&client_secret=pbkdf2_sha256$720000$v8uApNZmn236TLLSpFZt4O$3F1q4N//ZmWCq6UONW4CcJQ3skUvScuzVP/+upCtqW4=&grant_type=password&username=test1&password=test1" http://127.0.0.1:8000/auth/token
