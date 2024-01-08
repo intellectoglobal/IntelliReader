@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'image_to_doc_app',
     'users',
     'rest_framework',
+    'corsheaders',
         # OAuth
     'oauth2_provider',
     'social_django',
@@ -143,7 +144,40 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
+    "http://localhost:8000",
+    "http://127.0.0.1:8000",
+]
+
 AUTHENTICATION_BACKENDS = (
    'drf_social_oauth2.backends.DjangoOAuth2',
    'django.contrib.auth.backends.ModelBackend',
 )
+# AUTHENTICATION_BACKENDS = (
+#     # Others auth providers (e.g. Google, OpenId, etc)
+#     ...
+
+#     # Facebook OAuth2
+#     'social_core.backends.facebook.FacebookAppOAuth2',
+#     'social_core.backends.facebook.FacebookOAuth2',
+
+#     # drf_social_oauth2
+#     'drf_social_oauth2.backends.DjangoOAuth2',
+
+#     # Django
+#     'django.contrib.auth.backends.ModelBackend',
+# )
+
+# # Facebook configuration
+# SOCIAL_AUTH_FACEBOOK_KEY = '<your app id goes here>'
+# SOCIAL_AUTH_FACEBOOK_SECRET = '<your app secret goes here>'
+
+# # Define SOCIAL_AUTH_FACEBOOK_SCOPE to get extra permissions from Facebook.
+# # Email is not sent by default, to get it, you must request the email permission.
+# SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
+# SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {
+#     'fields': 'id, name, email'
+# }
+# SOCIAL_AUTH_USER_FIELDS = ['email', 'username', 'first_name', 'password']
