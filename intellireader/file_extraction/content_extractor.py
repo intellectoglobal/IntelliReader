@@ -4,6 +4,7 @@ from response_transition import TextractAnalyzer, LayoutFigureIdentifier, FontSi
 from crop_image_pdf import LayoutFigureGeometry, PDFImagePaster
 from lang_detect import LanguageDetector, PDFConverter
 import os
+from pdf_analyze import PDFAnalyzer
 
 
 def get_textract_response(pdf_path):
@@ -49,6 +50,12 @@ class MainScript:
         self.lang_detector = LanguageDetector()
 
     def process_input(self, input_path, output_pdf_path, updated_pdf_path, docx_path):
+        analyzer = PDFAnalyzer(input_path)
+        try:
+            analyzer.analyze_pdf()
+        except ValueError as e:
+            print(f"Error: {e}")
+            return
         if input_path.lower().endswith('.pdf'):
             images = PDFConverter.convert_to_images(input_path)
             if images:
